@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>main</title>
+    <link rel="stylesheet" type="text/css" href="{{$smarty.const.JS}}layui/css/layui.css" />
+    <script type="text/javascript" src="{{$smarty.const.JS}}forbidRight.js"></script>
+</head>
+<body>
+    <table class="layui-hide" id="table_type" lay-filter="role"></table>
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    </script>
+    <script src="{{$smarty.const.JS}}layui/layui.js" charset="utf-8"></script>
+    <script>
+    layui.use(['table','form'], function() {
+        var table = layui.table,
+        	form = layui.form;
+
+        //方法级渲染
+        table.render({
+            elem: '#table_type',
+            url: '{{$smarty.const.ADMIN_SITE}}Auth/getInfo',
+            cols: [[
+                { field: 'id', title: 'ID', sort: true, fixed: true, align: 'center' },
+                { field: 'role_id', title: '角色', align: 'center' },
+                { field: 'nav_ids', title: '权限（可操作菜单）', align: 'center' },
+                { field: 'created', title: '创建时间', sort: true, align: 'center' },
+                { fixed: 'right', title: '操作', align: 'center', toolbar: '#barDemo' }
+            ]],
+            id: 'idTest',
+            page: true,
+        });
+
+        //监听工具条
+        table.on('tool(role)', function(obj) {
+            var data = obj.data;
+            if (obj.event === 'edit') {
+                layer.open({
+                    type: 2,
+                    title: "编辑角色权限",
+                    area: ['700px', '450px'],
+                    fixed: false, //不固定
+                    closeBtn: 1,//关闭窗口按钮
+                    maxmin: true,//窗口最大最小化按钮
+                    content: 'edit?id='+data.id
+                });
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>

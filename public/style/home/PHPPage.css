@@ -1,0 +1,23 @@
+div.php_page{
+	font-family:'Î¢ÈíÑÅºÚ';
+	font-size:14px;
+}
+div.php_page a{
+	color:#666666;
+	text-decoration:none;
+	border:1px solid #e1e2e3;
+	padding:5px 10px;
+	margin:0 3px;
+}
+
+div.php_page .php_page_current{
+	padding:5px 10px;
+	margin:0 3px;
+	border:1px solid #666;
+	font-weight:bold;
+	color:gray;
+}
+
+div.php_page .php_page_info{
+	margin:0 0 0 10px;
+}

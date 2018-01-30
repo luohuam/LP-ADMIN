@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="{{$smarty.const.JS}}layui/css/layui.css"  media="all">
+	<link rel="stylesheet" type="text/css" href="{{$smarty.const.ADMIN_STYLE}}style.css" />
+	<script type="text/javascript" src="{{$smarty.const.JS}}forbidRight.js"></script>
+	<title>后台管理系统</title>
+	<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
+	<script>tpwidget("init", {
+	    "flavor": "bubble",
+	    "location": "WTW3SJ5ZBJUY",
+	    "geolocation": "enabled",
+	    "position": "top-left",
+	    "margin": "10px 600px",
+	    "language": "zh-chs",
+	    "unit": "c",
+	    "theme": "chameleon",
+	    "uid": "UD2ABFAD8B",
+	    "hash": "2b7ab259f7436bf4445a4e50204a3853"
+	});
+	tpwidget("show");</script>
+</head>
+<body>
+<div class="admin">
+	<div id="top">
+		<div id="#animation-left-nav" class="top-left">P-L</div>
+		<div class="mc">
+			<iframe allowtransparency="true" frameborder="0" width="410" height="98" scrolling="no" src="//tianqi.2345.com/plugin/widget/index.htm?s=2&z=2&t=1&v=0&d=2&bd=0&k=000000&f=ffffff&ltf=80ffff&htf=ff0000&q=1&e=1&a=1&c=58367&w=450&h=80&align=center"></iframe>
+		</div>
+		<div class="top-right-top">
+			<img src="{{$smarty.const.HOME_IMG}}/headimg.jpg">
+			<div class="con">
+				您好！<strong>{{$smarty.session.username}}</strong> 
+				[ <a href="{{$smarty.const.ADMIN_SITE}}Index/logout" target="_parent">退出</a> ]
+			</div>
+		</div>
+		<div class="top-right-down">
+			<ul>
+				<li><a href="{{$smarty.const.BASE_SITE}}Index.php/admin" target="_blank"><i class="layui-icon" style="font-size: 26px;">&#xe68e;</i></a></li>
+				<!-- <li alt="Menu" class="act"><span onclick="change(this)">菜单设置</span> <i class="layui-icon" onclick="closePage(this)">&#x1006;</i></li> -->
+			</ul>
+		</div>
+	</div>
+	<div id="left">
+		<ul class="layui-nav layui-nav-tree layui-inline" lay-filter="demo" style="margin-right: 10px;">
+		{{foreach $menu as $m}}
+			{{if in_array($m.id,$auth)}}
+			<li class="layui-nav-item">
+				<a href="javascript:;">{{if $m.icon}}<i class="layui-icon">&#xe{{$m.icon}};</i>{{/if}} {{$m.name}}</a>
+				<dl class="layui-nav-child">
+				{{foreach $child as $v}}
+					{{if $v.pid == $m.id}}
+					<dd><a href="javascript:;" alt="{{$v.controller}}">{{if $v.icon}}<i class="layui-icon">&#xe{{$v.icon}};</i>{{/if}} {{$v.name}}</a></dd>
+					{{/if}}
+				{{/foreach}}
+				</dl>
+			</li>
+			{{/if}}
+		{{/foreach}}
+		</ul>
+	</div>
+	<div id="main">
+		<iframe src="" width="99.5%" height="100%"></iframe>
+	</div>
+</div>
+</body>
+<script src="{{$smarty.const.JS}}jquery-1.12.0.min.js"></script>
+<script src="{{$smarty.const.JS}}layui/layui.js" charset="utf-8"></script>
+<script>
+// $("#left li:first").addClass("layui-nav-itemed");
+layui.use(['jquery','layer','element'], function(){
+	var $ = layui.$,
+		layer = layui.layer, //弹层
+		element = layui.element; //导航的hover效果、二级菜单等功能，需要依赖element模块
+		
+	//监听导航点击
+	element.on('nav(demo)', function(elem){
+		// console.log(elem);
+		// console.log(elem[0].lastChild.attributes['alt']['nodeValue']);
+
+		var src = elem[0].lastChild.attributes['alt']['nodeValue'];//点击的链接
+		var title = elem.text().split(" ")[1];//点击的名称
+		var html = '<li alt="'+src+'" class="act"><span onclick="change(this)">'+title+'</span> <i class="layui-icon" onclick="closePage(this)">&#x1006;</i></li>';
+		var len = $(".top-right-down li").length;
+		var flg = 0;
+		var index = 0;
+		if(len > 1){
+			for(var i = 1;i < len;i++){
+				var t = $(".top-right-down li").eq(i).find("span").text();
+				if(t == title){
+					index = i;
+					flg++;
+				}
+			}
+		}
+		$(".top-right-down li").removeClass("act");
+
+		if(flg > 0){
+			$("#main iframe").attr("src","{{$smarty.const.ADMIN_SITE}}"+src+"/index");
+			$(".top-right-down li").eq(index).addClass("act");
+		}else{
+			$("#main iframe").attr("src","{{$smarty.const.ADMIN_SITE}}"+src+"/index");
+			$(".top-right-down ul").append(html);
+		}
+	});
+});
+function closePage(obj){
+	var len = $(".top-right-down li").length;
+	var index = $(obj).parent().index();//点击的第几个
+	var cur = 0;
+	if (len > 2) {
+		for(var i=0;i<len;i++){
+			var cla = $(".top-right-down li").eq(i).attr("class");
+			if (cla == "act") {
+				cur = i;
+			}
+		}
+		$(".top-right-down li").removeClass("act");
+		if (index == cur) {
+			var title = "";
+			var src = "";
+			if ((index == len - 1) && (cur == len - 1)) {//删除的是最后一个,并且iframe显示的也是最后一个
+				title = $(".top-right-down li:last").prev().find("span").text();//倒数第二个选项卡名称
+				src = $(".top-right-down li:last").prev().attr("alt");//倒数第二个url
+				$(".top-right-down li:last").prev().addClass("act");
+			}else{
+				title = $(".top-right-down li:last").find("span").text();//最后一个选项卡名称
+				src = $(".top-right-down li:last").attr("alt");//最后一个url
+				$(".top-right-down li:last").addClass("act");
+			}
+			$(obj).parent().remove();
+			$("#main iframe").attr("src","{{$smarty.const.ADMIN_SITE}}"+src+"/index");
+		}else{
+			$(".top-right-down li").eq(cur).addClass("act");
+			$(obj).parent().remove();
+		}
+	}else{
+		$(obj).parent().remove();
+		$("#main iframe").attr("src","");
+	}
+}
+function change(obj){
+	$(".top-right-down li").removeClass("act");
+	$(obj).parent().addClass("act");
+
+	var src = $(obj).parent().attr("alt");
+	var alt = $(".layui-nav-item a");
+	var len = alt.length;
+	$(".layui-nav-item dd").removeClass("layui-this");
+	for(var i=0;i<len;i++){
+		if (alt.eq(i).attr("alt") == src) {
+			$(".layui-nav-item a").eq(i).parent().addClass("layui-this");
+			$(".layui-nav-item a").eq(i).parent().parent().parent().addClass("layui-nav-itemed");
+		}
+	}
+	$("#main iframe").attr("src","{{$smarty.const.ADMIN_SITE}}"+src+"/index");
+}
+</script>
+</html>

@@ -1,0 +1,355 @@
+@CHARSET "UTF-8";
+body,h1,h2,h3,p,form,ul,ol,li,dl,dt,dd {
+	padding:0;
+	margin:0;
+}
+body {
+	background:#fff;
+	font-size:12px;
+}
+ul,ol {
+	list-style-type:none;
+}
+table tr td:first-child{
+	font-weight: bolder;
+}
+#top {
+	background:url(../../images/admin_top_bg.gif);
+}
+#top h1 {
+	width:150px;
+	height:80px;
+	font-size:12px;
+	background:url(../../images/logosmall.png) no-repeat;
+	text-indent:-9999px;
+	float:left;
+}
+#top ul {
+	float:left;
+	padding:47px 0 0 10px;
+}
+#top ul li {
+	padding:0 0 0 5px;
+	float:left;
+}
+#top ul li a {
+	width:58px;
+	height:33px;
+	line-height:33px;
+	text-align:center;
+	display:block;
+	background:url(../../images/li_bg.png) no-repeat left bottom;
+	font-size:14px;
+	font-weight:bold;
+	text-decoration:none;
+	color:#fff;
+}
+#top ul li a.selected {
+	background-position:right bottom;
+	color:#3b6ea5;
+}
+#top p {
+	float:right;
+	padding:33px 20px 0 0;
+	color:#fff;
+	width: 200px;
+}
+#top p a {
+	text-decoration:none;
+	color:#fff;
+}
+#top p a:hover {
+	text-decoration:underline;
+}
+#sidebar {
+	background:#f7fbfc url(../../images/sidebar_right.png) repeat-y right;
+}
+#sidebar dl {
+	padding:20px;
+	text-indent:2px;
+}
+#sidebar dl dt {
+	font-size:14px;
+	color:#3b6ea5;
+	font-weight:bold;
+	border-bottom:1px solid #ccc;
+	padding:5px 0 ;
+	margin:5px 0;
+}
+#sidebar dl dd {
+	height:22px;
+	line-height:22px;
+}
+#sidebar dl dd a {
+	color:#333;
+	text-decoration:none;
+}
+#sidebar dl dd a:hover {
+	text-decoration:underline;
+}
+#main {
+	background:#fff;
+}
+#main div.map {
+	padding:15px;
+	color:#333;
+}
+#main div.map strong {
+	color:green;
+}
+#main table {
+	width:95%;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+#main table table {
+	width:100%;
+	text-align:left;
+}
+#main table.cke_dialog {
+	width:auto;
+}
+#main table.user {
+	text-align:left;
+}
+#main table span.red {
+	color:red;
+}
+#main table span.green {
+	color:green;
+}
+#main table.user tr td select {
+	width:220px;
+	height:22px;
+	border:1px solid #ccc;
+	background:#fff;
+}
+#main table.user tr td img.face {
+	margin:0 0 0 60px;
+}
+#main table.left {
+	text-align:left;
+}
+#main table tr {
+	background:#fff;
+}
+#main table tr:hover {
+	background:#ffffcc;
+}
+#main table tr.ckeditor {
+	background:none;
+}
+#main table tr.ckeditor tr {
+	background:none;
+}
+#main table.cke_dialog tr {
+	background:none;
+}
+#main table th, #main table td {
+	height:30px;
+	line-height:30px;
+	color:#333;
+}
+#main table th {
+	background:#eef3f7;
+	border-bottom:1px solid #d5dfe8;
+	font-weight:normal;
+}
+#main table td {
+	border-bottom:1px solid #eee;
+}
+#main table.content td {
+	text-align:left;
+	padding-left:5px;
+}
+#main table.content td span.red {
+	color:red;
+}
+#main table.content td input.text {
+	width:440px;
+}
+#main table.content td input.small {
+	width:100px;
+}
+#main table.content td select {
+	border:1px solid #ccc;
+	width:150px;
+	height:22px;
+}
+#main table.content td select optgroup {
+	font-style:normal;
+}
+#main table.content td select option {
+	padding:0 0 0 20px;
+}
+#main table.content td textarea {
+	margin:0;
+	width:440px;
+	height:80px;
+	overflow:auto;
+}
+#main table.content td span.middle {
+	vertical-align:30px;
+}
+#main a {
+	color:#3b6ea5;
+	text-decoration:none;
+}
+#main a:hover {
+	text-decoration:underline;
+}
+#main p.center {
+	text-align:center;
+	padding:20px;
+}
+#main form input.text {
+	width:220px;
+	height:19px;
+	background:#fff;
+	border:1px solid #ccc;
+}
+#main form input.sort {
+	width:30px;
+	text-align:center;
+}
+#main form select {
+	width:100px;
+	height:24px;
+	background:#fff;
+}
+#main form textarea {
+	font-size:13px;
+	width:220px;
+	height:100px;
+	background:#fff;
+	border:1px solid #ccc;
+	margin:0 0 0 60px;
+}
+#main form input.submit {
+	cursor:pointer;
+	margin:0 0 0 60px;
+}
+ol {
+	padding:0 0 0 26px;
+	height:35px;
+}
+ol li {
+	float:left;
+	padding:0 10px 0 0;
+}
+ol li a {
+	padding:6px;
+	display:block;
+}
+ol li a:hover {
+	color:#fff;
+	background:#eee;
+}
+ol li a.selected {
+	background:#3b6ea5;
+	color:#fff!important;
+}
+#adminLogin {
+	/*position: absolute;
+	top: 40%;
+	left: 60%;*/
+	width:450px;
+	margin:200px auto;
+	color:#333;
+	font-weight: bolder;
+	font-size:22px;
+}
+#adminLogin fieldset {
+	padding:20px;
+	height: 300px;
+	border-radius: 10px;
+	background: rgba(0,0,0,0.5);
+}
+#adminLogin fieldset span{
+	text-align: center;
+	width: 100%;
+	display: inline-block;
+	font-size: 28px;
+	color:#fff;
+}
+#adminLogin legend {
+	color: #fff;
+	font-size:32px;
+	font-weight:bold;
+	text-align: center;
+}
+#adminLogin label {
+	width: 256px;
+	height: 30px;
+	color: #fff;
+	display:block;
+	border-radius: 5px;
+	font-weight: normal;
+	background: #fff;
+	margin:20px 0 0 70px;
+	overflow: hidden;
+}
+#adminLogin label.t {
+	color:#999;
+	text-indent:56px;
+}
+#adminLogin label input.text {
+	width:220px;
+	height:100%;
+	border:1px solid #666;
+	background:#eee;
+	border: none;
+	outline: none;
+}
+#adminLogin input.submit {
+	margin: 35px 0 0 70px;
+	width: 255px;
+	height: 40px;
+	line-height: 35px;
+	font-size: 18px;
+	font-weight: bolder;
+	background: #3879D9;
+	color: #fff;
+	cursor:pointer;
+	border-radius: 6px;
+}
+#adminLogin label img {
+	margin:0 0 0 5px;
+	cursor:pointer;
+}
+#page {
+	text-align:center;
+	padding:10px;
+}
+#page a {
+	border:1px solid #666;
+	padding:2px 5px;
+	margin:0 2px;
+}
+#page a:hover,#page span.me {
+	color:#fff;
+	border:1px solid #000;
+	background:#000;
+	text-decoration:none;
+}
+#page span.disabled {
+	border:1px solid #ccc;
+	padding:2px 5px;
+	margin:0 2px;
+	color:#ccc;
+}
+#page span.me {
+	padding:2px 5px;
+	margin:0 2px;
+}
+#page select.select {
+	width:120px;
+	background:#fff;
+	border:1px solid #ccc;
+}
+#page select.select optgroup {
+	font-style:normal;
+}
+
+

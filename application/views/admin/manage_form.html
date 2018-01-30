@@ -1,0 +1,141 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>main</title>
+    <link rel="stylesheet" type="text/css" href="{{$smarty.const.JS}}layui/css/layui.css" />
+    <style type="text/css">
+        form{margin-top: 20px;}
+    </style>
+    <script type="text/javascript" src="{{$smarty.const.JS}}forbidRight.js"></script>
+</head>
+<body>
+    <form class="layui-form" action="">
+        {{if $smarty.get.act == "edit"}} <input type="hidden" name="id" value="{{$list.id}}">{{/if}}
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">账号</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="name" lay-verify="title" autocomplete="off" placeholder="请输入账号" class="layui-input" {{if $smarty.get.act == "edit"}} value="{{$list.name}}"{{/if}}>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">密码</label>
+            <div class="layui-input-inline">
+                <input type="password" name="pwd" lay-verify="pass" placeholder="请输入密码" autocomplete="off" class="layui-input" {{if $smarty.get.act == "edit"}} value="{{$list.pwd}}"{{/if}}>
+            </div>
+            <div class="layui-form-mid layui-word-aux">请填写6到12位密码</div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">角色</label>
+                <div class="layui-input-inline">
+                    <select name="role_id" lay-verify="role">
+                        <option value="">请选择</option>
+                        {{if $smarty.get.act == "edit"}}
+                            {{foreach $role as $v}}
+                                <option value="{{$v.id}}" {{if $v.id == $list.role_id}} selected="selected"{{/if}}>{{$v.name}}</option>
+                            {{/foreach}}
+                        {{/if}}
+                        {{if $smarty.get.act == "add"}}
+                            {{foreach $role as $v}}
+                                <option value="{{$v.id}}">{{$v.name}}</option>
+                            {{/foreach}}
+                        {{/if}}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">手机号</label>
+                <div class="layui-input-inline">
+                    <input type="tel" name="phone" lay-verify="phone" autocomplete="off" class="layui-input" {{if $smarty.get.act == "edit"}} value="{{$list.phone}}"{{/if}}>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-inline">
+                <label class="layui-form-label">邮箱</label>
+                <div class="layui-input-inline">
+                    <input type="text" name="email" lay-verify="email" autocomplete="off" class="layui-input" {{if $smarty.get.act == "edit"}} value="{{$list.email}}"{{/if}}>
+                </div>
+            </div>
+        </div> -->
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+            {{if $smarty.get.act=="add"}}
+                <button class="layui-btn" lay-submit="" lay-filter="add">添加</button>
+            {{else if $smarty.get.act=="edit"}}
+                <button class="layui-btn" lay-submit="" lay-filter="edit">确认修改</button>
+            {{/if}}
+            </div>
+        </div>
+    </form>
+</body>
+<script src="{{$smarty.const.JS}}jquery.min.js" charset="utf-8"></script>
+<script src="{{$smarty.const.JS}}layui/layui.js" charset="utf-8"></script>
+<script type="text/javascript">
+    layui.use('form', function(){
+        var form = layui.form;
+
+        //监听提交
+        form.on('submit(add)', function(data){
+            $.ajax({
+                url:'add',
+                data:data.field,
+                type:'post',
+                dataType:'json',
+                success:function(redata){
+                    if (redata.msg == 1) {
+                        window.parent.location.reload();//刷新父页面
+                        layer.closeAll('iframe');//关闭弹窗
+                    }else if(redata.msg == 2){
+                        layer.alert("添加失败，请重试！");
+                        layer.closeAll('iframe');//关闭弹窗
+                    }else if(redata.msg == 3){
+                        layer.msg("该账号已存在，请重新添加！");
+                    }
+                }
+            });
+            return false;
+        });
+        form.on('submit(edit)', function(data){
+            $.ajax({
+                url:'edit',
+                data:data.field,
+                type:'post',
+                dataType:'json',
+                success:function(redata){
+                    if (redata.msg == 1) {
+                        window.parent.location.reload();//刷新父页面
+                        layer.closeAll('iframe');//关闭弹窗
+                    }else if(redata.msg == 2){
+                        layer.alert("修改失败，请重试！");
+                        layer.closeAll('iframe');//关闭弹窗
+                    }else if(redata.msg == 3){
+                        layer.msg("修改后的账号已存在，请重新编辑！");
+                    }
+                }
+            });
+            return false;
+        });
+        form.verify({
+            title: function(value){
+                if(value.length == 0){
+                    return '账号不能为空';
+                }
+            },
+            role:function(value){
+                if(value.length == 0){
+                    return '请选择角色';
+                }
+            },
+            pass: [/(.+){6,12}$/, '密码必须6到12位'],
+            content: function(value){
+                layedit.sync(editIndex);
+            }
+        });
+    });
+</script>
+</html>
