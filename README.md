@@ -40,4 +40,4 @@ lpAdmin
 ## 2.后台模块
 ### 1.登录页 
 ##### 纯手撸，未使用任何框架模板，做的不好看勿怪
-![login](./screenshorts/login.png)
+![login](./screenshorts/login.gif)
