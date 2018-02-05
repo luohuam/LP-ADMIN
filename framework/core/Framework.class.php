@@ -62,6 +62,7 @@ class Framework{
 		include LIB_PATH . "PHPPage.class.php";
 		include LIB_PATH . "ValidateCode.class.php";
 		include LIB_PATH . "PHPExcel".DS."Export.class.php";
+		include LIB_PATH . "aliyun".DS."SmsDemo.class.php";
 	}
 	
     //定义路由分发方法,说白了，就是实例化对象并调用方法
