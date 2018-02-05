@@ -53,4 +53,7 @@ lpAdmin
 ![type](./screenshorts/type.gif)
 ### 4.Banner、广告、友情链接
 > * 个人觉得layui的富文本编辑器过于简单，因此使用了Uediter，并自定义了工具栏，如有需要，可自行定义
-![type](./screenshorts/type.gif)
+![type](./screenshorts/banner.gif)
+
+# 贡献
+#### 有任何意见或建议都欢迎提 issue
