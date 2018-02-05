@@ -1,6 +1,6 @@
 ﻿# LP-ADMIN
 ------
-## 1.目录结构
+## 一.目录结构
 ```
 lpAdmin
 └───application
@@ -37,10 +37,10 @@ lpAdmin
 > * 需要修改/framework/core/Framework.class.php中的常量'BASE_SITE'（主机名），如："http://www.baidu.com/", <font color=#B00000 >注意：</font>最后的“/”不能省略，为方便编写可按需定义路径常量。![img](./screenshorts/1.png)
 > * 根据不同需求，若要添加扩展，需将扩展核心类，在Framework.class.php中引用。
 
-## 2.后台模块
-##### 后台模块除登录页外，都是基于layui框架开发的。
+## 二.后台模块
+> * 后台模块除登录页外，其余前端基于layui框架开发
 ### 1.登录页 
-##### 纯手撸，未使用任何框架模板，做的不好看勿喷
+> * 纯手撸，未使用任何框架模板，做的不好勿喷
 ![login](./screenshorts/login.gif)
 ### 2.菜单设置
 ![menu](./screenshorts/menu2.gif)
@@ -49,3 +49,8 @@ lpAdmin
 > * 添加后台账号时设置对应角色，不同角色具有不同权限
 
 ![role](./screenshorts/role.gif)
+### 3.全局分类
+![type](./screenshorts/type.gif)
+### 4.Banner、广告、友情链接
+> * 个人觉得layui的富文本编辑器过于简单，因此使用了Uediter，并自定义了工具栏，如有需要，可自行定义
+![type](./screenshorts/type.gif)
