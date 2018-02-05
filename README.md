@@ -41,6 +41,7 @@ lpAdmin
 > * 后台模块除登录页外，其余前端基于layui框架开发
 ### 1.登录页 
 > * 纯手撸，未使用任何框架模板，做的不好勿喷
+
 ![login](./screenshorts/login.gif)
 ### 2.菜单设置
 ![menu](./screenshorts/menu2.gif)
@@ -53,7 +54,8 @@ lpAdmin
 ![type](./screenshorts/type.gif)
 ### 4.Banner、广告、友情链接
 > * 个人觉得layui的富文本编辑器过于简单，因此使用了Uediter，并自定义了工具栏，如有需要，可自行定义
+
 ![type](./screenshorts/banner.gif)
 
-# 贡献
+## 贡献
 #### 有任何意见或建议都欢迎提 issue
