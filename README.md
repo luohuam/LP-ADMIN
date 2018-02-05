@@ -42,4 +42,4 @@ lpAdmin
 ##### 纯手撸，未使用任何框架模板，做的不好看勿喷
 ![login](./screenshorts/login.gif)
 ### 2.菜单设置
-![menu](./screenshorts/menu.gif)
+![menu](./screenshorts/menu2 .gif)
