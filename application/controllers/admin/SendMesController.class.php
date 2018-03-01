@@ -1,7 +1,7 @@
 <?php 
 header("Content-type:text/html;charset=utf-8");
+	//可以把下面的方法直接拿到对应控制器中使用，或者直接调用该类
 	class sendMesController extends Controller{
-		//可以把下面的方法直接拿到对应控制器中使用
 		public function sendAction(){
 	    	if(!empty($_POST)){
 	    		$mobile=$_POST["phone"];
