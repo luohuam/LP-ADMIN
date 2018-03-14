@@ -157,8 +157,8 @@ class SmsDemo
 }
 
 // 调用示例：
-set_time_limit(0);
-header('Content-Type: text/plain; charset=utf-8');
+// set_time_limit(0);
+// header('Content-Type: text/plain; charset=utf-8');
 
 // $response = SmsDemo::sendSms(
 //     "短信签名", // 短信签名
