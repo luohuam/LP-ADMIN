@@ -66,6 +66,7 @@
                 check = "off";
             }
             var id = this.alt;
+
             $.post('switch',{check:check,id:id},function(redata){
                 if (redata.msg == 2) {
                     layer.tips("修改失败");
@@ -157,7 +158,7 @@
                             return false;
                         });
                     }
-                    
+
                 // layer.alert(JSON.stringify(data));
             },
             refresh: function() { //获取选中数目
@@ -173,7 +174,7 @@
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
-        
+
     });
     </script>
 </body>

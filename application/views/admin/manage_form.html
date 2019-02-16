@@ -95,6 +95,8 @@
                         layer.closeAll('iframe');//关闭弹窗
                     }else if(redata.msg == 3){
                         layer.msg("该账号已存在，请重新添加！");
+                    }else if(redata.msg == 4){
+                        layer.msg("权限不足，无法添加超级管理员账号！");
                     }
                 }
             });
@@ -115,6 +117,10 @@
                         layer.closeAll('iframe');//关闭弹窗
                     }else if(redata.msg == 3){
                         layer.msg("修改后的账号已存在，请重新编辑！");
+                    }else if(redata.msg == 4){
+                        layer.msg("权限不足，无法添加超级管理员账号！");
+                    }else if(redata.msg == 5){
+                        layer.msg("权限不足，无法修改其他账号！");
                     }
                 }
             });

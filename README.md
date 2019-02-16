@@ -18,7 +18,7 @@ lpAdmin
 |               └─── Controller.class.php -----------控制器基类
 |               └─── Framework.class.php  -----------框架核心类 
 |               └─── Model.class.php ----------------模型基类 
-│        └─── database 
+│        └─── database
 |               └─── Mysql.class.php ----------------数据库CURD函数库
 │        └─── libraries -----------------------------扩展库（目前有PHPExcel、分页、验证码、阿里大鱼短信验证） 
 │   

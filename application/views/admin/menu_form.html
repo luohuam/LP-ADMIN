@@ -123,8 +123,10 @@
                     if (redata.msg == 1) {
                         window.parent.location.reload();//刷新父页面
                         layer.closeAll('iframe');//关闭弹窗
-                    }else{
+                    }else if(redata.msg == 2){
                         layer.alert("修改失败，请重试！");
+                    }else if(redata.msg == 3){
+                        layer.alert("权限不足！无法修改该菜单！");
                     }
                 }
             });

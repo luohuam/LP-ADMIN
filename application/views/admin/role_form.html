@@ -70,6 +70,8 @@
                         layer.closeAll('iframe');//关闭弹窗
                     }else if(redata.msg == 3){
                         layer.msg("修改后的角色名已存在，请重新修改！");
+                    }else if(redata.msg == 4){
+                        layer.msg("权限不足！");
                     }
                 }
             });

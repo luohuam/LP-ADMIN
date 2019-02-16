@@ -58,12 +58,13 @@
                         layer.closeAll('iframe');//关闭弹窗
                     }else if(redata.msg == 2){
                         layer.alert("修改失败，请重试！");
-                        layer.closeAll('iframe');//关闭弹窗
+                    }else if(redata.msg == 3){
+                        layer.alert("权限不足！");
                     }
                 }
             });
             return false;
-        });    
+        });
     });
     </script>
 </body>
