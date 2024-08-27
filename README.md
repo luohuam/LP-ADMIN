@@ -57,7 +57,8 @@ lpAdmin
 
 ![type](./screenshorts/banner.gif)
 
-<video width="320" height="240" controls>  
+<video width="320" height="240">
+<video width="320" height="240" controls src="https://github.com/luohuam/LP-ADMIN/blob/master/screenshorts/test.mp4">  
   <source src="https://github.com/luohuam/LP-ADMIN/blob/master/screenshorts/test.mp4" type="video/mp4">  
   Your browser does not support the video tag.  
 </video>
