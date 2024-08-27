@@ -56,8 +56,9 @@ lpAdmin
 > * 个人觉得layui的富文本编辑器过于简单，因此使用了Uediter，并自定义了工具栏，如有需要，可自行定义
 
 ![type](./screenshorts/banner.gif)
+
 <video width="320" height="240" controls>  
-  <source src="[[[./screenshorts/test.mp4]()]()](https://github.com/luohuam/LP-ADMIN/blob/master/screenshorts/test.mp4)" type="video/mp4">  
+  <source src="https://github.com/luohuam/LP-ADMIN/blob/master/screenshorts/test.mp4" type="video/mp4">  
   Your browser does not support the video tag.  
 </video>
 
